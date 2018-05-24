@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: person
+    ports:
+      - 3306:3306
+
+  person-service:
+    build:
+      context: ../
+      args:
+        ARTIFACT: /build/libs/demo-0.0.1-SNAPSHOT.jar
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    links:
+      - db

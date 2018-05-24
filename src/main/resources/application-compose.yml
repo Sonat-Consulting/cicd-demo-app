@@ -1,0 +1,15 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mariadb://db:3306/person
+    driver-class-name: "org.mariadb.jdbc.Driver"
+  jpa:
+    generate-ddl: true
+
+
