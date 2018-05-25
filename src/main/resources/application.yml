@@ -3,6 +3,7 @@ management:
     web:
       exposure:
         include: "*"
+
 spring:
   datasource:
     username: ${DATABASE_USERNAME:root}
@@ -11,6 +12,9 @@ spring:
     driver-class-name: "org.mariadb.jdbc.Driver"
   jpa:
     generate-ddl: ${JPA_GENERATE_DDL:true}
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
 server:
   port: ${SERVICE_PORT:8080}
 
