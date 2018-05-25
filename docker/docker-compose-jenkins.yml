@@ -7,6 +7,10 @@ services:
       MYSQL_DATABASE: person
     ports:
       - 3306:3306
+    networks:
+      jdt:
+        aliases:
+          - database
 
   person-service:
     image: localhost:5000/demo
@@ -18,3 +22,8 @@ services:
       - db
     links:
       - db
+    networks:
+      jdt:
+
+  networks:
+    jdt:
