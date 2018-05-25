@@ -4,17 +4,20 @@
   <groupId>no.sonat.fagdag.cicd</groupId>
   <artifactId>demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
   <repositories>
-  <repository>
-    <id>mvnrepository</id>
-    <name>mvn repository</name>
-    <url>https://mvnrepository.com</url>
-  </repository>
-</repositories>
-<properties>
-  <maven.compiler.source>1.8</maven.compiler.source>
-  <maven.compiler.target>1.8</maven.compiler.target>
-</properties>
+    <repository>
+      <id>mvnrepository</id>
+      <name>mvn repository</name>
+      <url>https://mvnrepository.com</url>
+    </repository>
+  </repositories>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -78,7 +81,18 @@
       <version>1.4.197</version>
       <scope>test</scope>
     </dependency>
+   <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
+   </dependency>
+     <dependency>
+       <groupId>ch.qos.logback</groupId>
+       <artifactId>logback-core</artifactId>
+       <version>1.2.3</version>
+   </dependency>
   </dependencies>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -90,4 +104,38 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+          <configuration>
+            <target>${maven.compiler.target}</target>
+            <source>${maven.compiler.source}</source>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>2.0.2.RELEASE</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>build-info</goal>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>pl.project13.maven</groupId>
+          <artifactId>git-commit-id-plugin</artifactId>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
 </project>

@@ -12,7 +12,7 @@ services:
     build:
       context: ../
       args:
-        ARTIFACT: /build/libs/demo-0.0.1-SNAPSHOT.jar
+        ARTIFACT: /target/demo-0.0.1-SNAPSHOT.jar
     environment:
       SPRING_PROFILES_ACTIVE: compose
     ports:

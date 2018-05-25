@@ -5,11 +5,13 @@ management:
         include: "*"
 spring:
   datasource:
-    username: root
-    password: password
-    url: jdbc:mariadb://db:3306/person
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:password}
+    url: j${DATABASE_CONNECTION_URL:dbc:mariadb://db:3306/person}
     driver-class-name: "org.mariadb.jdbc.Driver"
   jpa:
-    generate-ddl: true
+    generate-ddl: ${JPA_GENERATE_DDL:true}
+server:
+  port: ${SERVICE_PORT:8080}
 
 
