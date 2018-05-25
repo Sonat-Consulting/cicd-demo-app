@@ -18,7 +18,7 @@ node {
         sh 'docker-compose -f docker/docker-compose-jenkins.yml up -d'
         def ip = "\$(docker inspect --format '{{ .NetworkSettings.Networks.jenkinsdockertest_jdt.Gateway }}' demo)"
         sleep 15
-        sh "curl -# http://${ip}:8080/actuator/health"
+        sh "curl -# http://${ip}:8888/actuator/health"
         sh 'docker-compose down'
     }
 
