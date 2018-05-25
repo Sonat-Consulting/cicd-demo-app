@@ -8,9 +8,7 @@ services:
     ports:
       - 3306:3306
     networks:
-      jdt:
-        aliases:
-          - database
+      - jdt
 
   person-service:
     image: localhost:5000/demo
@@ -23,7 +21,7 @@ services:
     links:
       - db
     networks:
-      jdt:
+      - jdt
 
-  networks:
-    jdt:
+networks:
+  jdt:
